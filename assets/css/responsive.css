@@ -1,0 +1,78 @@
+/* ==========================================================================
+   IRONFORGE GYM - RESPONSIVE TWEAKS & MEDIA QUERIES
+   ========================================================================== */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+  :root {
+    --navbar-height: 72px;
+  }
+
+  .navbar-brand {
+    font-size: 1.35rem;
+  }
+
+  .brand-icon-box {
+    width: 36px;
+    height: 36px;
+    font-size: 1.15rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .btn-forge-primary,
+  .btn-forge-outline {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .stats-box {
+    padding: 1.25rem 0.75rem !important;
+  }
+
+  .schedule-time-badge {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .table-forge th, 
+  .table-forge td {
+    padding: 0.85rem 0.75rem !important;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991.98px) */
+@media (max-width: 991.98px) {
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    justify-content: center;
+  }
+}
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1180px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}

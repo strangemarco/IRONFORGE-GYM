@@ -1,0 +1,949 @@
+/* ==========================================================================
+   IRONFORGE GYM - DESIGN SYSTEM & FULL COMPONENT STYLES
+   Palette:
+   - Principal: #101010
+   - Superficies: #1E1E1E / #252525
+   - Acento: #B6FF3B (Electric Lime)
+   - Texto Principal: #FFFFFF
+   - Texto Secundario: #929292
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Tokens */
+  --bg-primary: #101010;
+  --bg-surface: #181818;
+  --bg-surface-card: #1E1E1E;
+  --bg-surface-elevated: #262626;
+  --bg-surface-glass: rgba(26, 26, 26, 0.85);
+
+  --accent-lime: #B6FF3B;
+  --accent-lime-hover: #9EE22A;
+  --accent-lime-glow: rgba(182, 255, 59, 0.35);
+  --accent-lime-subtle: rgba(182, 255, 59, 0.12);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #929292;
+  --text-muted: #6B6B6B;
+  --text-dark: #0A0A0A;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(182, 255, 59, 0.4);
+  --border-focus: #B6FF3B;
+
+  /* Typography */
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
+  --shadow-lime: 0 0 25px rgba(182, 255, 59, 0.35);
+  --shadow-lime-intense: 0 0 40px rgba(182, 255, 59, 0.55);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Spacing & Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --navbar-height: 84px;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(182, 255, 59, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(182, 255, 59, 0.02) 0%, transparent 35%);
+  background-attachment: fixed;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+a {
+  color: var(--accent-lime);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-lime-hover);
+}
+
+::selection {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-lime);
+}
+
+/* ==========================================================================
+   UTILITY & DECORATIVE CLASSES
+   ========================================================================== */
+.text-lime {
+  color: var(--accent-lime) !important;
+}
+
+.bg-lime {
+  background-color: var(--accent-lime) !important;
+}
+
+.bg-dark-surface {
+  background-color: var(--bg-surface) !important;
+}
+
+.bg-card {
+  background-color: var(--bg-surface-card) !important;
+}
+
+.border-subtle {
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.border-accent {
+  border: 1px solid var(--border-accent) !important;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 0.1em;
+}
+
+/* Badges */
+.badge-lime {
+  background: var(--accent-lime-subtle);
+  color: var(--accent-lime);
+  border: 1px solid var(--border-accent);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Section Header Decoration */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-lime);
+  margin-bottom: 0.75rem;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent-lime);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  margin-bottom: 1rem;
+  line-height: 1.08;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-padding {
+  padding: 100px 0;
+  position: relative;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn-forge-primary {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-lime);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 14px rgba(182, 255, 59, 0.25);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-forge-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.6s;
+  transform: skewX(-20deg);
+}
+
+.btn-forge-primary:hover {
+  background-color: var(--accent-lime-hover);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lime);
+}
+
+.btn-forge-primary:hover::after {
+  left: 150%;
+}
+
+.btn-forge-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.btn-forge-outline:hover {
+  color: var(--accent-lime);
+  border-color: var(--accent-lime);
+  background-color: var(--accent-lime-subtle);
+  transform: translateY(-2px);
+}
+
+.btn-forge-sm {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   NAVBAR COMPONENT
+   ========================================================================== */
+.ironforge-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  height: var(--navbar-height);
+  background-color: rgba(16, 16, 16, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition-normal);
+}
+
+.ironforge-navbar.scrolled {
+  background-color: rgba(16, 16, 16, 0.97);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+  border-bottom-color: rgba(182, 255, 59, 0.2);
+  height: 74px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-primary) !important;
+  text-transform: uppercase;
+}
+
+.brand-icon-box {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--accent-lime) 0%, #87cb1a 100%);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 1.35rem;
+  box-shadow: var(--shadow-lime);
+  transform: rotate(-3deg);
+  transition: var(--transition-spring);
+}
+
+.navbar-brand:hover .brand-icon-box {
+  transform: rotate(0deg) scale(1.08);
+}
+
+.brand-highlight {
+  color: var(--accent-lime);
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-lime);
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px var(--accent-lime);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: calc(100% - 2rem);
+}
+
+.nav-link.active {
+  color: var(--accent-lime) !important;
+}
+
+.navbar-toggler {
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--accent-lime);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(16, 16, 16, 0.4) 0%, rgba(16, 16, 16, 0.85) 75%, var(--bg-primary) 100%),
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  padding-top: var(--navbar-height);
+  padding-bottom: 4rem;
+}
+
+.hero-overlay-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  line-height: 0.95;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #D1D1D1;
+  max-width: 600px;
+  margin-bottom: 2.2rem;
+  font-weight: 400;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-pill);
+  background: rgba(182, 255, 59, 0.1);
+  border: 1px solid var(--accent-lime);
+  color: var(--accent-lime);
+  font-family: var(--font-heading);
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(182, 255, 59, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(182, 255, 59, 0.5); }
+}
+
+.hero-stats-box {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   CARDS & CONTAINERS COMMON SYSTEM
+   ========================================================================== */
+.card-forge {
+  background-color: var(--bg-surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-forge:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Feature Box in About */
+.feature-box {
+  background-color: var(--bg-surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  height: 100%;
+  transition: all var(--transition-normal);
+}
+
+.feature-box:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icon-box {
+  width: 58px;
+  height: 58px;
+  background-color: var(--accent-lime-subtle);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--accent-lime);
+  margin-bottom: 1.25rem;
+  transition: var(--transition-spring);
+}
+
+.feature-box:hover .feature-icon-box {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* ==========================================================================
+   CLASSES SECTION
+   ========================================================================== */
+.class-filter-btn {
+  background-color: var(--bg-surface-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.3rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.class-filter-btn:hover,
+.class-filter-btn.active {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  border-color: var(--accent-lime);
+  box-shadow: 0 0 15px rgba(182, 255, 59, 0.3);
+}
+
+.class-card .class-img-wrapper {
+  height: 240px;
+  position: relative;
+}
+
+.class-card .class-img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.class-card:hover .class-img {
+  transform: scale(1.08);
+}
+
+.class-meta-bar {
+  background: linear-gradient(180deg, transparent 0%, rgba(16, 16, 16, 0.95) 100%);
+}
+
+/* ==========================================================================
+   TRAINERS SECTION
+   ========================================================================== */
+.trainer-card .trainer-img-wrapper {
+  height: 320px;
+  background-color: #121212;
+}
+
+.trainer-card .trainer-img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(20%);
+  transition: all 0.5s ease;
+}
+
+.trainer-card:hover .trainer-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.trainer-socials-overlay {
+  background: linear-gradient(to top, rgba(16, 16, 16, 0.95), transparent);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-normal);
+}
+
+.trainer-card:hover .trainer-socials-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.social-circle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.social-circle-btn:hover {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SCHEDULE SECTION
+   ========================================================================== */
+.schedule-nav .nav-link {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-sm);
+  margin: 0 0.25rem 0.5rem 0.25rem;
+  padding: 0.65rem 1.25rem !important;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.schedule-nav .nav-link::after {
+  display: none;
+}
+
+.schedule-nav .nav-link.active {
+  background: var(--accent-lime) !important;
+  color: var(--text-dark) !important;
+  border-color: var(--accent-lime);
+  box-shadow: 0 0 15px rgba(182, 255, 59, 0.3);
+}
+
+/* ==========================================================================
+   SCHEDULE TABLE STYLES (DARK THEME & HIGH CONTRAST)
+   ========================================================================== */
+.table-forge,
+.table.table-forge,
+.table-dark.table-forge {
+  --bs-table-bg: #181818 !important;
+  --bs-table-color: #ffffff !important;
+  --bs-table-hover-bg: #222222 !important;
+  --bs-table-border-color: rgba(255, 255, 255, 0.08) !important;
+  --bs-table-accent-bg: transparent !important;
+  --bs-table-striped-bg: transparent !important;
+  background-color: #181818 !important;
+  color: #ffffff !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: var(--radius-md);
+  margin-bottom: 0;
+}
+
+.table-forge thead th {
+  background-color: #121212 !important;
+  color: var(--accent-lime) !important;
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--accent-lime) !important;
+  padding: 1.15rem 1.25rem !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.table-forge tbody tr td {
+  background-color: #181818 !important;
+  color: #ffffff !important;
+  padding: 1.15rem 1.25rem !important;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: background-color var(--transition-fast);
+}
+
+.table-forge tbody tr:hover td {
+  background-color: #242424 !important;
+}
+
+.table-forge tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.schedule-time-badge {
+  background: rgba(182, 255, 59, 0.12);
+  color: var(--accent-lime);
+  border: 1px solid rgba(182, 255, 59, 0.35);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ==========================================================================
+   PRICING SECTION
+   ========================================================================== */
+.pricing-card {
+  position: relative;
+  transition: all var(--transition-normal);
+  overflow: visible !important; /* Permite que la insignia flote sobre el borde sin recortarse */
+}
+
+.popular-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.popular-badge .badge-popular {
+  background: var(--accent-lime);
+  color: #0c0c0c;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 20px rgba(182, 255, 59, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-transform: uppercase;
+}
+
+.pricing-card.popular-plan {
+  border: 2px solid var(--accent-lime);
+  background: linear-gradient(180deg, rgba(182, 255, 59, 0.05) 0%, var(--bg-surface-card) 100%);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lime);
+}
+
+.pricing-card.popular-plan:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+.form-switch .form-check-input {
+  width: 3.25em;
+  height: 1.75em;
+  background-color: #333333;
+  border-color: #555555;
+  cursor: pointer;
+}
+
+.form-switch .form-check-input:checked {
+  background-color: var(--accent-lime);
+  border-color: var(--accent-lime);
+}
+
+.border-lime-pulse {
+  animation: pulseSelect 1.5s ease;
+  border-color: var(--accent-lime) !important;
+  box-shadow: 0 0 15px var(--accent-lime) !important;
+}
+
+@keyframes pulseSelect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   FORM & INPUTS
+   ========================================================================== */
+.form-forge {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-forge:focus {
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--accent-lime);
+  color: var(--text-primary);
+  outline: none;
+  box-shadow: 0 0 10px rgba(182, 255, 59, 0.25);
+}
+
+.form-forge::placeholder {
+  color: var(--text-muted);
+}
+
+.form-forge option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #cccccc;
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   TESTIMONIALS & FAQ ACCORDION
+   ========================================================================== */
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #555555;
+  margin: 0 5px;
+}
+
+.carousel-indicators .active {
+  background-color: var(--accent-lime);
+}
+
+.accordion-button {
+  box-shadow: none !important;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #242424 !important;
+  color: var(--accent-lime) !important;
+}
+
+.accordion-button::after {
+  filter: invert(1);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.ironforge-footer {
+  background-color: #0b0b0b;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.925rem;
+  transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--accent-lime);
+  padding-left: 6px;
+}
+
+/* ==========================================================================
+   FLOATING BUTTONS
+   ========================================================================== */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 58px;
+  height: 58px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.85rem;
+  z-index: 1020;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: all var(--transition-normal);
+}
+
+.floating-whatsapp:hover {
+  color: #FFFFFF;
+  transform: scale(1.1) rotate(6deg);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 98px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-lime);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 1010;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--accent-lime);
+  color: var(--text-dark);
+  transform: translateY(-3px);
+}
