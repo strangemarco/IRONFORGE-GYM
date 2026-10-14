@@ -164,10 +164,13 @@ function renderTestimonials() {
       <div class="carousel-item ${index === 0 ? 'active' : ''}">
         <div class="row justify-content-center">
           <div class="col-12 col-md-10 col-lg-8">
-            <div class="card-forge p-4 p-md-5 text-center position-relative">
-              <i class="bi bi-quote position-absolute top-0 start-50 translate-middle display-3 text-lime opacity-25"></i>
+            <div class="card-forge testimonial-card p-4 p-md-5 text-center position-relative">
+              <i class="bi bi-quote testimonial-watermark" aria-hidden="true"></i>
+              <div class="testimonial-quote-badge mx-auto">
+                <i class="bi bi-quote"></i>
+              </div>
               <div class="mb-3">${stars}</div>
-              <p class="fs-5 text-white-50 fst-italic mb-4 px-md-4">
+              <p class="fs-5 text-light fst-italic mb-4 px-md-4">
                 "${test.comment}"
               </p>
               <div class="d-flex align-items-center justify-content-center gap-3">

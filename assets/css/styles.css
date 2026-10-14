@@ -839,6 +839,94 @@ a:hover {
 /* ==========================================================================
    TESTIMONIALS & FAQ ACCORDION
    ========================================================================== */
+.testimonial-card {
+  background-color: var(--bg-surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: visible !important;
+}
+
+.testimonial-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.testimonial-quote-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 2px solid var(--accent-lime);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-lime);
+  font-size: 1.6rem;
+  box-shadow: 0 0 20px rgba(182, 255, 59, 0.35);
+  margin-bottom: 1.25rem;
+  transition: transform var(--transition-spring);
+}
+
+.testimonial-card:hover .testimonial-quote-badge {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.testimonial-watermark {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 5.5rem;
+  color: var(--accent-lime);
+  opacity: 0.05;
+  pointer-events: none;
+  line-height: 1;
+}
+
+#testimonialsCarousel {
+  position: relative;
+  padding: 0 1rem;
+}
+
+#testimonialsCarousel .carousel-inner {
+  padding: 10px 0 20px;
+}
+
+#testimonialsCarousel .carousel-control-prev,
+#testimonialsCarousel .carousel-control-next {
+  width: 46px;
+  height: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(24, 24, 24, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  opacity: 0.85;
+}
+
+#testimonialsCarousel .carousel-control-prev:hover,
+#testimonialsCarousel .carousel-control-next:hover {
+  background-color: var(--accent-lime);
+  border-color: var(--accent-lime);
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(182, 255, 59, 0.4);
+}
+
+#testimonialsCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
+#testimonialsCarousel .carousel-control-next:hover .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+#testimonialsCarousel .carousel-control-prev {
+  left: -10px;
+}
+
+#testimonialsCarousel .carousel-control-next {
+  right: -10px;
+}
+
 .carousel-indicators [data-bs-target] {
   width: 12px;
   height: 12px;
