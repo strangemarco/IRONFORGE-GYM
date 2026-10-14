@@ -17,6 +17,7 @@ function initPricingSection() {
 
   function updateCards() {
     renderPricingCards(GYM_DATA.plans, container, isAnnual);
+    updateSelectOptions(isAnnual);
   }
 
   if (billingToggle) {
@@ -65,7 +66,7 @@ function renderPricingCards(plans, container, isAnnual) {
             <span class="text-uppercase text-secondary fw-semibold small letter-spacing-1">${plan.badge}</span>
             <h3 class="font-heading text-white mt-1 mb-3">${plan.name}</h3>
             <div class="price-box my-3">
-              <span class="fs-4 text-lime align-top">$</span>
+              <span class="fs-4 text-lime align-top me-1">Bs.</span>
               <span class="price-val font-heading display-4 fw-bold text-white">${price}</span>
               <span class="text-secondary small">/mes</span>
             </div>
@@ -136,3 +137,24 @@ function selectPlanForRegistration(planId, planName, billing) {
     }
   }
 }
+
+function updateSelectOptions(isAnnual) {
+  const planSelect = document.getElementById('reg-plan');
+  if (!planSelect || !GYM_DATA || !GYM_DATA.plans) return;
+
+  const currentVal = planSelect.value;
+  GYM_DATA.plans.forEach(plan => {
+    const opt = planSelect.querySelector(`option[value="${plan.id}"]`);
+    if (opt) {
+      const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
+      const rec = plan.popular ? ' - Recomendado' : '';
+      const mode = isAnnual ? ' (Anual)' : '';
+      opt.textContent = `${plan.name} (Bs. ${price}/mes${mode})${rec}`;
+    }
+  });
+
+  if (currentVal) {
+    planSelect.value = currentVal;
+  }
+}
+

@@ -193,8 +193,8 @@ const GYM_DATA = {
       name: 'Plan Básico',
       badge: 'Esencial',
       popular: false,
-      monthlyPrice: 29,
-      annualPrice: 23, // por mes facturado anualmente (276 / año)
+      monthlyPrice: 200,
+      annualPrice: 160, // por mes facturado anualmente (1.920 Bs / año)
       description: 'Ideal para quienes inician y buscan acceso libre a zona de pesas y máquinas cardiovasculares.',
       features: [
         { text: 'Acceso ilimitado a Sala de Pesas y Máquinas', included: true },
@@ -211,8 +211,8 @@ const GYM_DATA = {
       name: 'Plan Pro',
       badge: 'Más Popular',
       popular: true,
-      monthlyPrice: 49,
-      annualPrice: 39, // por mes facturado anualmente (468 / año)
+      monthlyPrice: 350,
+      annualPrice: 280, // por mes facturado anualmente (3.360 Bs / año)
       description: 'El plan definitivo para progresar rápido. Incluye todas las clases grupales guiadas.',
       features: [
         { text: 'Acceso ilimitado a Sala de Pesas y Máquinas', included: true },
@@ -229,8 +229,8 @@ const GYM_DATA = {
       name: 'Plan Elite VIP',
       badge: 'Experiencia Total',
       popular: false,
-      monthlyPrice: 79,
-      annualPrice: 63, // por mes facturado anualmente (756 / año)
+      monthlyPrice: 550,
+      annualPrice: 440, // por mes facturado anualmente (5.280 Bs / año)
       description: 'Acceso total sin restricciones, asesoría de nutrición deportiva y recuperación de alto rendimiento.',
       features: [
         { text: 'Acceso TOTAL a todas las instalaciones 24/7', included: true },
@@ -295,7 +295,7 @@ const GYM_DATA = {
     },
     {
       question: '¿Cuáles son los métodos de pago aceptados?',
-      answer: 'Aceptamos transferencias bancarias, tarjetas de crédito/débito (Visa, Mastercard), código QR y pagos en efectivo en recepción.'
+      answer: 'Aceptamos transferencias bancarias en bolivianos (Bs.), tarjetas de crédito/débito (Visa, Mastercard), transferencias inmediatas por código QR y pagos en efectivo en recepción.'
     }
   ],
 
